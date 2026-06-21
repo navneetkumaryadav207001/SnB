@@ -31,7 +31,18 @@
 
       <label class="field-label" for="apiKey">Groq API key</label>
       <input id="apiKey" class="text-input" type="password" placeholder="gsk_..." autocomplete="off">
-      <button id="save" class="primary-button" type="button">Save key</button>
+
+      <div style="margin-top: 16px; margin-bottom: 8px; border-top: 1px solid var(--snb-hairline); padding-top: 16px;">
+        <h2 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600; color: var(--snb-ink); font-family: var(--snb-font-sans);">Screenshots Hotkeys</h2>
+      </div>
+
+      <label class="field-label" for="hotkeyRect">Rectangle Selection Screenshot</label>
+      <input id="hotkeyRect" class="text-input" type="text" placeholder="Click and press keys..." readonly style="cursor: pointer; caret-color: transparent;">
+
+      <label class="field-label" for="hotkeyFull">Full Page Screenshot</label>
+      <input id="hotkeyFull" class="text-input" type="text" placeholder="Click and press keys..." readonly style="cursor: pointer; caret-color: transparent;">
+
+      <button id="save" class="primary-button" type="button" style="margin-top: 8px;">Save settings</button>
     </section>
   </main>
   <script src="options.js"></script>

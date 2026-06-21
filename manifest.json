@@ -8,10 +8,12 @@
         "128": "icon.svg"
     },
     "permissions": [
-        "storage"
+        "storage",
+        "activeTab"
     ],
     "host_permissions": [
-        "https://api.groq.com/*"
+        "https://api.groq.com/*",
+        "<all_urls>"
     ],
     "background": {
         "service_worker": "background.js"
@@ -22,7 +24,11 @@
                 "<all_urls>"
             ],
             "js": [
-                "content.js"
+                "utils/marked.js",
+                "utils/text_formatting.js",
+                "utils/ui.js",
+                "content.js",
+                "utils/screenshots.js"
             ],
             "css": [
                 "styles.css"
