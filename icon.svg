@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 256 256"
+     width="256"
+     height="256">
+
+  <!-- Click rays -->
+  <g stroke="white" stroke-width="14" stroke-linecap="round" fill="none">
+    <line x1="82" y1="38" x2="82" y2="18"/>
+    <line x1="52" y1="52" x2="38" y2="38"/>
+    <line x1="40" y1="82" x2="18" y2="82"/>
+    <line x1="52" y1="112" x2="38" y2="126"/>
+    <line x1="112" y1="52" x2="126" y2="38"/>
+  </g>
+
+  <!-- Cursor -->
+  <path
+    fill="white"
+    d="
+      M95 65
+      C82 65 73 77 77 89
+      L120 211
+      C124 223 140 224 145 212
+      L165 156
+      L222 137
+      C235 133 237 116 225 111
+      L104 66
+      C101 65 98 65 95 65
+      Z"/>
+</svg>

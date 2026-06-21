@@ -3,7 +3,11 @@ chrome.runtime.onMessage.addListener(
 
     if (msg.type !== "EXPLAIN") return;
 
-    console.log("Background: Received EXPLAIN request for text:", msg.text.substring(0, 50) + "...");
+    const selectedText = msg.text || "";
+    const userPrompt = (msg.prompt || "Explain simply").trim();
+
+    console.log("Background: Received EXPLAIN request for text:", selectedText.substring(0, 50) + "...");
+    console.log("Background: User prompt:", userPrompt);
 
     const result = await chrome.storage.sync.get("groqKey");
     const groqKey = result.groqKey;
@@ -35,7 +39,7 @@ chrome.runtime.onMessage.addListener(
             messages: [
               {
                 role: "user",
-                content: `Explain simply:\n${msg.text}`
+                content: `context:${selectedText}\nprompt:${userPrompt}`
               }
             ]
           })

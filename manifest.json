@@ -2,6 +2,11 @@
     "manifest_version": 3,
     "name": "AI Explainer",
     "version": "1.0",
+    "description": "Select text and get instant AI explanations powered by Groq",
+    "icons": {
+        "48": "icon.svg",
+        "128": "icon.svg"
+    },
     "permissions": [
         "storage"
     ],
@@ -24,5 +29,11 @@
             ]
         }
     ],
-    "options_page": "options.html"
+    "options_page": "options.html",
+    "action": {
+        "default_icon": {
+            "48": "icon.svg",
+            "128": "icon.svg"
+        }
+    }
 }
