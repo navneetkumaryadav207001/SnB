@@ -348,6 +348,13 @@ function showExplainButton(selectedText, mouseX, mouseY) {
         }
     };
 
+    promptInput.oncopy = (e) => {
+        if (promptInput.selectionStart !== promptInput.selectionEnd) return;
+
+        e.preventDefault();
+        e.clipboardData.setData("text/plain", selectedText);
+    };
+
     setTimeout(() => promptInput.focus(), 0);
 }
 
