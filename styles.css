@@ -1,6 +1,8 @@
-/* content.css - Vercel Geist Design System Stylesheet */
+/* ==========================================================================
+   content.css - Vercel Geist Design System Stylesheet
+   ========================================================================== */
 
-/* --- Dynamic Theme Variable Backing --- */
+/* --- 1. Dynamic Theme Variable Backing (Tokens) --- */
 :root {
     --snb-ink: #ededed;
     --snb-canvas: #0a0a0a;
@@ -12,15 +14,17 @@
     --snb-faint: #666666;
     --snb-primary: #ededed;
     --snb-on-primary: #0a0a0a;
+
     --snb-font-sans: 'Geist', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
     --snb-font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-    --snb-floating-shadow: 0 1px 1px rgba(0, 0, 0, 0.42), 0 18px 36px -18px rgba(0, 0, 0, 0.75), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 
-    /* Shared Gradients */
+    --snb-floating-shadow: 0 1px 1px rgba(0, 0, 0, 0.42),
+        0 18px 36px -18px rgba(0, 0, 0, 0.75),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     --snb-gradient: linear-gradient(90deg, #007cf0, #00dfd8, #7928ca, #ff0080, #f9cb28);
 }
 
-/* --- Inline Global Animations --- */
+/* --- 2. Core Animations & Global Engines --- */
 @keyframes snb-spin {
     0% {
         transform: rotate(0deg);
@@ -31,63 +35,63 @@
     }
 }
 
-/* --- Selection Engine Highlights --- */
 .snb-selection-highlight {
     position: fixed !important;
     z-index: 2147483645 !important;
     pointer-events: none !important;
-    border-radius: 3px !important;
     background: rgba(0, 124, 240, 0.32) !important;
     box-shadow: 0 0 0 1px rgba(0, 223, 216, 0.24) !important;
+    border-radius: 3px !important;
 }
 
-/* --- Floating Action Component Context (Toolbar) --- */
+/* --- 3. Floating Action Component Context (Toolbar) --- */
 #ai-toolbar {
     position: fixed !important;
     z-index: 2147483647 !important;
     display: flex !important;
     align-items: center !important;
     gap: 0 !important;
+    width: auto !important;
+    margin: 0 !important;
     padding: 0 !important;
+    box-sizing: border-box !important;
+    background: var(--snb-canvas-elevated) !important;
     border: 1px solid var(--snb-hairline) !important;
     border-radius: 9999px !important;
-    background: var(--snb-canvas-elevated) !important;
     box-shadow: var(--snb-floating-shadow) !important;
-    overflow: hidden !important;
-    visibility: visible !important;
     opacity: 1 !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
+    visibility: visible !important;
+    overflow: hidden !important;
     transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
 }
 
 #ai-btn {
-    background: var(--snb-canvas-elevated) !important;
-    color: var(--snb-ink) !important;
-    border: none !important;
-    border-right: 1px solid var(--snb-hairline) !important;
-    padding: 0 !important;
-    border-radius: 9999px 0 0 9999px !important;
-    cursor: pointer !important;
-    font-weight: 500 !important;
-    font-size: 14px !important;
-    font-family: var(--snb-font-sans) !important;
-    box-shadow: var(--snb-floating-shadow) !important;
+    flex: 0 0 48px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    visibility: visible !important;
-    opacity: 1 !important;
     width: 48px !important;
     height: 44px !important;
-    flex: 0 0 48px !important;
     margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    font-family: var(--snb-font-sans) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: var(--snb-ink) !important;
+    background: var(--snb-canvas-elevated) !important;
+    border: none !important;
+    border-right: 1px solid var(--snb-hairline) !important;
+    border-radius: 9999px 0 0 9999px !important;
+    box-shadow: var(--snb-floating-shadow) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
     transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease !important;
 }
 
 #ai-btn:hover {
-    background: var(--snb-ink) !important;
     color: var(--snb-on-primary) !important;
+    background: var(--snb-ink) !important;
     border-color: var(--snb-ink) !important;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04), 0 12px 24px -8px rgba(0, 0, 0, 0.18) !important;
     transform: translateY(-1px) !important;
@@ -97,70 +101,69 @@
     width: 220px !important;
     max-width: calc(100vw - 76px) !important;
     height: 44px !important;
-    box-sizing: border-box !important;
     padding: 0 14px !important;
-    border: none !important;
-    border-radius: 0 9999px 9999px 0 !important;
-    outline: none !important;
-    background: var(--snb-canvas-elevated) !important;
-    color: var(--snb-ink) !important;
+    box-sizing: border-box !important;
     font-family: var(--snb-font-sans) !important;
     font-size: 13px !important;
     line-height: 18px !important;
+    color: var(--snb-ink) !important;
+    background: var(--snb-canvas-elevated) !important;
+    border: none !important;
+    border-radius: 0 9999px 9999px 0 !important;
     box-shadow: none !important;
+    outline: none !important;
 }
 
-/* --- Base Modal Definitions --- */
+/* --- 4. Base Modal Definitions & State Layouts --- */
 #ai-popup {
     position: fixed !important;
     z-index: 2147483647 !important;
+    top: 50% !important;
+    left: 50% !important;
+    box-sizing: border-box !important;
     background: var(--snb-canvas-elevated) !important;
     border: 1px solid var(--snb-hairline) !important;
     box-shadow: var(--snb-floating-shadow) !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    top: 50% !important;
-    left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    box-sizing: border-box !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-/* --- State Layout Class Modifiers --- */
 .snb-state-loading {
-    width: 320px !important;
-    padding: 18px 20px 20px !important;
-    border-radius: 12px !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
+    width: 320px !important;
+    padding: 18px 20px 20px !important;
+    border-radius: 12px !important;
 }
 
 .snb-state-api {
+    display: block !important;
     width: 400px !important;
     max-width: 92vw !important;
     padding: 24px !important;
     border-radius: 12px !important;
-    display: block !important;
 }
 
 .snb-state-explain {
+    display: flex !important;
+    flex-direction: column !important;
     width: 460px !important;
     max-width: 90vw !important;
     height: 80vh !important;
     border-radius: 12px !important;
-    display: flex !important;
-    flex-direction: column !important;
     overflow: hidden !important;
 }
 
-/* --- UI Structural Layout Helpers --- */
+/* --- 5. UI Structural Elements & Headers --- */
 .snb-header-gradient {
     width: 100% !important;
     height: 3px !important;
-    border-radius: 9999px !important;
     background: var(--snb-gradient) !important;
+    border-radius: 9999px !important;
 }
 
 .snb-loading-gradient {
@@ -175,7 +178,6 @@
     margin-bottom: 8px !important;
 }
 
-/* Setup & Result Header Blocks */
 .snb-modal-header-block {
     display: flex !important;
     align-items: center !important;
@@ -187,12 +189,12 @@
 }
 
 .snb-explain-header-block {
-    padding: 12px 18px 8px 18px !important;
-    flex-shrink: 0 !important;
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
     gap: 12px !important;
+    flex-shrink: 0 !important;
+    padding: 12px 18px 8px 18px !important;
 }
 
 .snb-meta-split {
@@ -202,32 +204,33 @@
 }
 
 .snb-icon-wrapper {
+    flex: 0 0 auto !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     width: 36px !important;
     height: 36px !important;
+    color: var(--snb-ink) !important;
     background: var(--snb-canvas) !important;
     border: 1px solid var(--snb-hairline) !important;
     border-radius: 6px !important;
-    color: var(--snb-ink) !important;
-    flex: 0 0 auto !important;
 }
 
+/* --- 6. Typography Systems --- */
 .snb-label-mono {
     font-family: var(--snb-font-mono) !important;
-    color: var(--snb-mute) !important;
-    font-weight: 500 !important;
     font-size: 11px !important;
     line-height: 16px !important;
-    text-transform: uppercase !important;
+    font-weight: 500 !important;
     letter-spacing: 0 !important;
+    text-transform: uppercase !important;
+    color: var(--snb-mute) !important;
 }
 
 .snb-title-text {
     font-weight: 600 !important;
-    color: var(--snb-ink) !important;
     letter-spacing: -0.4px !important;
+    color: var(--snb-ink) !important;
 }
 
 .snb-api-title {
@@ -246,44 +249,27 @@
     letter-spacing: -0.2px !important;
 }
 
-/* Subtext & Layout Elements */
 .snb-body-desc {
     margin-bottom: 16px !important;
-    color: var(--snb-body) !important;
     font-size: 14px !important;
     line-height: 20px !important;
+    color: var(--snb-body) !important;
 }
 
-.snb-lottie-container {
-    width: 220px !important;
-    height: 220px !important;
-    display: block !important;
-    margin-top: -8px !important;
-}
-
-.snb-spinner-fallback {
-    width: 32px !important;
-    height: 32px !important;
-    border: 2px solid var(--snb-hairline) !important;
-    border-top: 2px solid var(--snb-ink) !important;
-    border-radius: 50% !important;
-    animation: snb-spin 0.8s linear infinite !important;
-}
-
-/* Forms & Interactivity Controls */
+/* --- 7. Forms, Buttons & Interactivity --- */
 #api-key-input {
     width: 100% !important;
     min-height: 40px !important;
     padding: 0 12px !important;
-    border: 1px solid var(--snb-hairline) !important;
-    border-radius: 6px !important;
     margin-bottom: 12px !important;
-    font-size: 14px !important;
-    line-height: 20px !important;
     box-sizing: border-box !important;
     font-family: var(--snb-font-mono) !important;
+    font-size: 14px !important;
+    line-height: 20px !important;
     color: var(--snb-ink) !important;
     background: var(--snb-canvas-elevated) !important;
+    border: 1px solid var(--snb-hairline) !important;
+    border-radius: 6px !important;
     outline: none !important;
     transition: border-color 0.15s, box-shadow 0.15s !important;
 }
@@ -297,15 +283,15 @@
     width: 100% !important;
     min-height: 40px !important;
     padding: 0 14px !important;
-    background: var(--snb-primary) !important;
-    color: var(--snb-on-primary) !important;
-    border: 1px solid var(--snb-primary) !important;
-    border-radius: 6px !important;
     cursor: pointer !important;
-    font-weight: 500 !important;
+    font-family: var(--snb-font-sans) !important;
     font-size: 14px !important;
     line-height: 20px !important;
-    font-family: var(--snb-font-sans) !important;
+    font-weight: 500 !important;
+    color: var(--snb-on-primary) !important;
+    background: var(--snb-primary) !important;
+    border: 1px solid var(--snb-primary) !important;
+    border-radius: 6px !important;
     transition: opacity 0.15s, transform 0.15s !important;
 }
 
@@ -315,16 +301,16 @@
 }
 
 #close-btn {
+    flex-shrink: 0 !important;
     width: 32px !important;
     height: 32px !important;
-    border-radius: 6px !important;
-    border: 1px solid var(--snb-hairline) !important;
-    background: var(--snb-canvas-elevated) !important;
-    color: var(--snb-ink) !important;
     cursor: pointer !important;
     font-size: 18px !important;
     line-height: 1 !important;
-    flex-shrink: 0 !important;
+    color: var(--snb-ink) !important;
+    background: var(--snb-canvas-elevated) !important;
+    border: 1px solid var(--snb-hairline) !important;
+    border-radius: 6px !important;
     transition: background 0.12s ease !important;
 }
 
@@ -332,22 +318,61 @@
     background: var(--snb-canvas) !important;
 }
 
-/* Output Content Scroller Layout */
+#copy-btn {
+    width: 100% !important;
+    min-height: 40px !important;
+    padding: 0 14px !important;
+    cursor: pointer !important;
+    font-family: var(--snb-font-sans) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: var(--snb-ink) !important;
+    background: var(--snb-canvas-elevated) !important;
+    border: 1px solid var(--snb-hairline) !important;
+    border-radius: 6px !important;
+    transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s !important;
+}
+
+#copy-btn:hover {
+    color: var(--snb-on-primary) !important;
+    background: var(--snb-ink) !important;
+    border-color: var(--snb-ink) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* --- 8. Dynamic Loading / Layout Scrollers --- */
+.snb-lottie-container {
+    display: block !important;
+    width: 220px !important;
+    height: 220px !important;
+    margin-top: -8px !important;
+}
+
+.snb-spinner-fallback {
+    width: 32px !important;
+    height: 32px !important;
+    border: 2px solid var(--snb-hairline) !important;
+    border-top: 2px solid var(--snb-ink) !important;
+    border-radius: 50% !important;
+    animation: snb-spin 0.8s linear infinite !important;
+}
+
 #text-container {
     flex: 1 !important;
-    overflow-y: auto !important;
-    min-height: 0 !important;
     padding: 0 24px !important;
+    overflow-y: auto !important;
 }
 
 #explanation-text {
-    white-space: pre-wrap !important;
-    word-break: break-word !important;
-    color: var(--snb-body) !important;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px !important;
     font-family: var(--snb-font-sans) !important;
     font-size: 14px !important;
     line-height: 22px !important;
-    padding-bottom: 16px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    color: var(--snb-body) !important;
 }
 
 .snb-footer-actions {
@@ -356,30 +381,7 @@
     border-top: 1px solid var(--snb-hairline) !important;
 }
 
-#copy-btn {
-    width: 100% !important;
-    min-height: 40px !important;
-    padding: 0 14px !important;
-    background: var(--snb-canvas-elevated) !important;
-    color: var(--snb-ink) !important;
-    border: 1px solid var(--snb-hairline) !important;
-    border-radius: 6px !important;
-    cursor: pointer !important;
-    font-weight: 500 !important;
-    font-size: 14px !important;
-    font-family: var(--snb-font-sans) !important;
-    transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s !important;
-}
-
-#copy-btn:hover {
-    background: var(--snb-ink) !important;
-    color: var(--snb-on-primary) !important;
-    border-color: var(--snb-ink) !important;
-    transform: translateY(-1px) !important;
-}
-
-
-/* --- Canvas Capture Screen Boundaries --- */
+/* --- 9. Screen Boundaries Capture (Screenshot Module) --- */
 #snb-screenshot-overlay {
     position: fixed !important;
     top: 0 !important;
@@ -387,9 +389,9 @@
     width: 100vw !important;
     height: 100vh !important;
     z-index: 2147483640 !important;
-    user-select: none !important;
     cursor: crosshair !important;
     background: rgba(0, 0, 0, 0.45) !important;
+    user-select: none !important;
 }
 
 #snb-screenshot-overlay canvas {
@@ -400,16 +402,15 @@
     height: 100% !important;
 }
 
-/* --- Inline Micro-Thumbnail Component Block --- */
 .snb-thumb-container {
     position: relative !important;
+    flex: 0 0 32px !important;
     width: 32px !important;
     height: 32px !important;
-    border-radius: 6px !important;
-    border: 1px solid var(--snb-hairline) !important;
-    overflow: hidden !important;
-    flex: 0 0 32px !important;
     margin-right: 2px !important;
+    border: 1px solid var(--snb-hairline) !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
 }
 
 .snb-thumb-container img {
@@ -422,20 +423,165 @@
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    background: rgba(0, 0, 0, 0.6) !important;
-    color: #ff4d4d !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    cursor: pointer !important;
     font-size: 16px !important;
     font-weight: bold !important;
-    cursor: pointer !important;
+    color: #ff4d4d !important;
+    background: rgba(0, 0, 0, 0.6) !important;
     opacity: 0 !important;
     transition: opacity 0.15s ease !important;
 }
 
 .snb-thumb-container:hover .snb-thumb-delete-badge {
     opacity: 1 !important;
+}
+
+/* --- 10. Markdown Parsing & Structural Layout Engine --- */
+#md-output,
+.snb-thinking-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px !important;
+    padding: 0 !important;
+}
+
+#md-output {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.snb-thinking-header {
+    font-family: var(--snb-font-sans) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--snb-mute) !important;
+    transition: color 0.1s ease !important;
+}
+
+.snb-thinking-header:hover {
+    color: var(--snb-ink) !important;
+}
+
+/* Base Content State: Completely hidden by default */
+.snb-thinking-accordion .snb-thinking-content {
+    display: none !important;
+    margin-left: 16px !important;
+    padding-left: 14px !important;
+    line-height: 22px;
+    color: #a0a0a0;
+    border-left: 2px solid var(--snb-hairline) !important;
+}
+
+/* Open State Trigger: Explicit display activation when container has class */
+.snb-thinking-accordion.is-open .snb-thinking-content {
+    display: flex !important;
+    flex-direction: column;
+    gap: 12px !important;
+}
+
+/* Structural Markdown Reset controls */
+#md-output *,
+.snb-thinking-content * {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+}
+
+#md-output li,
+.snb-thinking-content li {
+    margin-bottom: 6px !important;
+}
+
+#md-output ul,
+#md-output ol,
+.snb-thinking-content ul,
+.snb-thinking-content ol {
+    padding-left: 20px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+#md-output>*:last-child,
+.snb-thinking-content>*:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+
+/* Ensure structural list containers have explicit padding to hold bullets */
+#md-output ul,
+.snb-thinking-content ul {
+    list-style-type: disc !important;
+    /* Forces normal bullet points */
+    padding-left: 24px !important;
+    /* Creates enough room for the bullet to appear */
+    margin-bottom: 12px !important;
+}
+
+#md-output ol,
+.snb-thinking-content ol {
+    list-style-type: decimal !important;
+    /* Forces standard numbering (1, 2, 3...) */
+    padding-left: 24px !important;
+    /* Creates enough room for the numbers */
+    margin-bottom: 12px !important;
+}
+
+/* Ensure list items display as proper list elements rather than standard blocks */
+#md-output li,
+.snb-thinking-content li {
+    display: list-item !important;
+    /* Explicitly forces the browser list element engine */
+    list-style-position: outside !important;
+    margin-bottom: 6px !important;
+    /* Cleans up individual item breathing room */
+    padding-left: 4px !important;
+    /* Delicate offset separating the bullet from text */
+}
+
+
+/* --- 10. Markdown Parsing & Structural Layout Engine --- */
+#md-output,
+.snb-thinking-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px !important;
+    padding: 0 !important;
+    margin-bottom: 14px !important;
+}
+
+#md-output {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/* Style the native interactive wrapper */
+.snb-thinking-header {
+    font-family: var(--snb-font-sans) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--snb-mute) !important;
+    padding: 4px 0 !important;
+    transition: color 0.1s ease !important;
+}
+
+.snb-thinking-header:hover {
+    color: var(--snb-ink) !important;
+}
+
+/* Styles the content window only when the container is in its native [open] status */
+.snb-thinking-accordion[open] .snb-thinking-content {
+    display: flex !important;
+    flex-direction: column;
+    gap: 12px !important;
+    margin-left: 8px !important;
+    padding-left: 14px !important;
+    margin-top: 8px !important;
+    line-height: 22px;
+    color: #a0a0a0;
+    border-left: 2px solid var(--snb-hairline) !important;
 }

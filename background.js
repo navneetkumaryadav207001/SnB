@@ -57,25 +57,37 @@ async function handleExplain(msg, sendResponse) {
       contentVal = `context:${selectedText}\nprompt:${userPrompt}`;
     }
 
-    const res = await fetch(
-      "https://api.groq.com/openai/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${groqKey}`,
-          "Content-Type": "application/json"
+    
+
+    const SYSTEM_PROMPT = `
+    Let's Think Step-by-step
+`;
+
+const res = await fetch(
+  "https://api.groq.com/openai/v1/chat/completions",
+  {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${groqKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model,
+      messages: [
+        {
+          role: "system",
+          content: SYSTEM_PROMPT
         },
-        body: JSON.stringify({
-          model: model,
-          messages: [
-            {
-              role: "user",
-              content: contentVal
-            }
-          ]
-        })
-      }
-    );
+        {
+          role: "user",
+          content: contentVal
+        }
+      ],
+      max_completion_tokens: 4096,
+      reasoning_effort: "none"
+    })
+  }
+);
 
     if (!res.ok) {
       const errorText = await res.text();

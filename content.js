@@ -1,7 +1,7 @@
 // content.js - Runtime Flow Management Engine
 console.log("SnB content.js loaded");
 
-const DEFAULT_PROMPT = "Explain simply";
+const DEFAULT_PROMPT = "Explain simply dont think too much";
 const DOTLOTTIE_SCRIPT_ID = "dotlottie-wc-script";
 const DOTLOTTIE_SCRIPT_SRC = "https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js";
 const LOADING_LOTTIE_SRC = "https://lottie.host/9c818cf9-113f-4925-a279-5d6432465b90/zsUBC2pSGa.lottie";
@@ -238,8 +238,9 @@ function showPopup(text) {
 
     const explanationTextEl = popup.querySelector("#explanation-text");
     if (window.formatLLMOutput) {
+        // This injects our new native HTML details layout seamlessly
         explanationTextEl.innerHTML = window.formatLLMOutput(text);
-        window.initThinkingAccordions(popup);
+        // REMOVED: window.initThinkingAccordions(popup);
     } else {
         explanationTextEl.textContent = text;
     }

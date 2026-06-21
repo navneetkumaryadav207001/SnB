@@ -24,13 +24,16 @@
                 "<all_urls>"
             ],
             "js": [
-                "utils/marked.js",
+                "vendor/marked.js",
+                "vendor/kartex.min.js",
+                "vendor/marked-katex-extension.js",
                 "utils/text_formatting.js",
                 "utils/ui.js",
                 "content.js",
                 "utils/screenshots.js"
             ],
             "css": [
+                "vendor/kartex.min.css",
                 "styles.css"
             ]
         }
